@@ -24,6 +24,7 @@ def main():
     nodes = generate_nodes(1500)
     content = "\n".join([node.to_string() for node in nodes])
     with open(from_datapath("nodes.csv"), "w", encoding="utf-8") as file:
+        file.write("ID,Name,Age,Faculty\n")
         file.write(content)
 
 

@@ -22,6 +22,7 @@ def main():
         ]
     )
     with open(from_datapath("adjacency_list.csv"), "w", encoding="utf-8") as file:
+        file.write("Source,Target\n")
         file.write(content)
 
 

@@ -24,6 +24,7 @@ def main():
         ]
     )
     with open(from_datapath("connections.csv"), "w", encoding="utf-8") as file:
+        file.write("Source,Target,Weight\n")
         file.write(content)
 
 

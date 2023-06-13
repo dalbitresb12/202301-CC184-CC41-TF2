@@ -7,9 +7,11 @@ ConnectionsDict: TypeAlias = dict[tuple[int, int], int]
 AdjacencyListDict: TypeAlias = defaultdict[int, list[int]]
 
 
-def parse_connections(filename: str) -> ConnectionsDict:
+def parse_connections(filename: str, header: bool = True) -> ConnectionsDict:
     connections: ConnectionsDict = dict()
     with open(from_datapath(filename), "r", encoding="utf-8") as file:
+        if header:
+            _ = file.readline()
         for line in file:
             parts = [int(part) for part in line.strip().split(",")]
             connections[(parts[0], parts[1])] = parts[2]
