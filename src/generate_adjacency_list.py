@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from util.file_handlers import from_datapath
 from util.nodes import ConnectionsDict, AdjacencyListDict, parse_connections
 from collections import defaultdict

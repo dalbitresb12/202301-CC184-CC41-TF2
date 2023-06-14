@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from util.nodes import ConnectionsDict
 from util.file_handlers import from_datapath
 from random import randint
