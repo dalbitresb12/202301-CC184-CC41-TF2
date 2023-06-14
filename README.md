@@ -2,6 +2,8 @@
 
 Trabajo parcial del curso de Complejidad Algorítmica (2023-01) v2
 
+![Exported nodes image](gephi/nodes.png)
+
 ## Informe
 
 Próximamente...
