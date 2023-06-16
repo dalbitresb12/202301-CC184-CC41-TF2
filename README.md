@@ -17,6 +17,7 @@ Disponible en [Google Docs](https://docs.google.com/document/d/1ZmKFYGlOkgfngYyZ
 
 - [`/data`](/data/): archivos de dataset, entre ellos la lista de adyacencia, las aristas y nodos.
 - [`/gephi`](/gephi/): el proyecto de Gephi utilizado para renderizar el grafo como una image en base a los archivos del dataset.
+- [`/images`](/images/): imágenes utilizadas en el informe, generadas en base a archivos con [Carbon](https://carbon.now.sh/).
 - [`/src`](/src/): código en Python utilizado para la generación de datasets y la aplicación.
 
 ## Licencia
