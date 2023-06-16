@@ -15,12 +15,12 @@ def from_datapath(filepath: str, stop_at_repo: bool = True) -> str:
         return __recursive_finder__(f"../{path}")
 
     if __cached_data_files_path__ is None:
-        __cached_data_files_path__ = __recursive_finder__("..")
+        __cached_data_files_path__ = __recursive_finder__(".")
     return f"{__cached_data_files_path__}/data/{filepath}"
 
 
-def list_from_txt(filepath: str, use_datapath: bool = True) -> list[str]:
+def list_from_txt(filename: str, use_datapath: bool = True) -> list[str]:
     if use_datapath:
-        filepath = from_datapath(filepath)
-    with open(filepath, "r", encoding="utf-8") as file:
+        filename = from_datapath(filename)
+    with open(filename, "r", encoding="utf-8") as file:
         return [line.strip() for line in file.readlines()]

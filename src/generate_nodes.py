@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-from util.file_handlers import list_from_txt, from_datapath
-from util.nodes import PersonNode
+from csv import DictWriter
+from dtypes import PersonNode
+from util.io import list_from_txt, from_datapath
 from random import randint, choice
 
 
@@ -22,10 +23,10 @@ def generate_nodes(size: int) -> list[PersonNode]:
 
 def main():
     nodes = generate_nodes(1500)
-    content = "\n".join([node.to_string() for node in nodes])
-    with open(from_datapath("nodes.csv"), "w", encoding="utf-8") as file:
-        file.write("ID,Name,Age,Faculty\n")
-        file.write(content)
+    with open(from_datapath("nodes.csv"), "w", encoding="utf-8", newline="") as file:
+        writer = DictWriter(file, ["ID", "Name", "Age", "Faculty"])
+        writer.writeheader()
+        writer.writerows([node.to_mapping() for node in nodes])
 
 
 if __name__ == "__main__":
