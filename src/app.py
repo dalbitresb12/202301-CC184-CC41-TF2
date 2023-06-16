@@ -22,7 +22,8 @@ def main():
     else:
         shortest_path = graph.dijkstra(source, target)
         print(
-            f"La conexión más corta desde el estudiante {source} hasta el estudiante {target} es: {shortest_path}"
+            f"La conexión más corta desde el estudiante {source} "
+            f"hasta el estudiante {target} es: {shortest_path}"
         )
         print("Atributos de los nodos intermedios:")
         for node_id in shortest_path:
