@@ -6,9 +6,12 @@ from .node_edge import NodeEdge
 
 
 class Graph:
-    def __init__(self):
+    def __init__(self, nodes: Union[dict[int, PersonNode], None] = None):
         self.connections = defaultdict[int, list[tuple[int, int]]](list)
-        self.nodes = dict[int, PersonNode]()
+        if nodes is None:
+            self.nodes = dict[int, PersonNode]()
+        else:
+            self.nodes = nodes
 
     def add_node(self, node: PersonNode):
         self.nodes[node.id] = node
@@ -27,7 +30,7 @@ class Graph:
 
         parent = {node: node for node in self.connections}
         rank = {node: 0 for node in self.connections}
-        minimum_spanning_tree = list[tuple[int, int, int]]()
+        minimum_spanning_tree = Graph(self.nodes)
 
         def find(node: int):
             if parent[node] != node:
@@ -48,7 +51,7 @@ class Graph:
         for weight, u, v in edges:
             if find(u) != find(v):
                 union(u, v)
-                minimum_spanning_tree.append((u, v, weight))
+                minimum_spanning_tree.add_edge(NodeEdge(u, v, weight))
 
         return minimum_spanning_tree
 

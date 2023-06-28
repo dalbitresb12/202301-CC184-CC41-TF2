@@ -14,6 +14,8 @@ def main():
     for conn in connections:
         graph.add_edge(conn)
 
+    graph = graph.kruskal()
+
     source = int(input("Estudiante de inicio: "))
     target = int(input("Estudiante de destino: "))
 
@@ -33,6 +35,12 @@ def main():
                 print(f"Atributos del nodo: {node.to_string()}")
             else:
                 print(f"El nodo {node_id} no tiene atributos asociados.")
+        intermediate_nodes = len(shortest_path)
+        print(f"Hay un total de {intermediate_nodes} nodos intermedios.")
+        if intermediate_nodes > 2:
+            print("Es muy poco probable que estos dos usuarios se conozocan.")
+        else:
+            print("Es posible que estos usuarios se conozocan.")
 
 
 if __name__ == "__main__":
